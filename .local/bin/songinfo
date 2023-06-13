@@ -1,0 +1,13 @@
+#!/bin/bash
+
+music_dir="$HOME/Music"
+
+mpc_file="$(mpc --format "$music_dir/%file%" current)"
+
+cover_path="/tmp/album_cover.png"
+
+ffmpeg -i "$mpc_file" -an -vcodec copy "$cover_path" >/dev/null 2>&1
+
+notify-send --icon="$cover_path" "Now Playing ♫" "$(mpc current)"
+
+rm -f "$cover_path"

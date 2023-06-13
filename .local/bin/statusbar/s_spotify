@@ -1,0 +1,15 @@
+if playerctl -p spotify metadata > /dev/null 2>&1; then
+    artist=$(playerctl -p spotify metadata artist)
+    title=$(playerctl -p spotify metadata title)
+
+    if [ -z "$artist" ] && [ -z "$title" ]; then
+        echo ""
+    else
+        echo "󰓇 $artist - $title"
+    fi
+fi
+
+case $BLOCK_BUTTON in
+	  1) playerctl play-pause ;;
+	  6) st -e nvim "$0" ;;
+esac

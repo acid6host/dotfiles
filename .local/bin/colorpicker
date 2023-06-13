@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Run the color picker in terminal mode
+color=$(gpick --single --output)
+
+# COpy the color to the clipboard
+echo -n "$color" | xclip -selection clipboard

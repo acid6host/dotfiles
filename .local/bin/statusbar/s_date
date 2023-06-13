@@ -1,0 +1,7 @@
+dte="$(date +"%d/%m  %I:%M %P")"
+echo -e "󰸗 $dte"
+
+case $BLOCK_BUTTON in
+	1) notify-send "$(cal)" ;;
+  6) st -e nvim "$0" ;;
+esac
